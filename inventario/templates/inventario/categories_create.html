@@ -1,0 +1,33 @@
+{% extends 'core/base_admin.html' %}
+{% load static %}
+
+{% block content %}
+{% block extrahead %}
+
+{% endblock %}
+    <main role="main">
+        <div class="container col-12 mt-3">
+            <div class="col-12  mt-3">
+                <h3>Nueva Categoría</h3> 
+                <form method="post" action="{% url 'categories_save' %}">
+                    {% csrf_token %}
+                    <div class="row">                       
+                        <div class="col-12 col-sm-4 mb-3">
+                            <label for="name">Nombre categoría (*)</label>
+                            <input type="text" class="form-control border" id="name" name="name" autofocus maxlength="254" required/>
+                        </div>
+                        
+                        <div class="row"> 
+                            <div class="col-12 col-sm-6 mb-3">
+                                <input type="submit" value="Crear Categoría" class="button form-control">
+                            </div>
+                            <div class="col-12 col-sm-6 mb-3">
+                                <a href="{% url 'inventario_main' %}" class="button button--gray form-control">Volver</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+{% endblock %}
